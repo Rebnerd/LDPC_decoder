@@ -1,9 +1,9 @@
 `timescale 1ns/10ps
-
+ 
 module tb_shuffle();
 
-localparam CLK_PERIOD = 10ns;
-localparam HOLD  = 1ns;
+localparam CLK_PERIOD = 10;
+localparam HOLD  = 1;
 
 localparam FOLDFACTOR     = 4;
 localparam NUMINSTANCES   = 360 / FOLDFACTOR;
@@ -70,6 +70,7 @@ localparam SHIFTFACTOR1 = (FOLDFACTOR==1) ? 12 :
                           (FOLDFACTOR==3) ? 4  :
                           /* 4 */           3;     
 
+// three stages shift coarse->medium->fine(Granularity)
 assign shift0 = shiftval / SHIFTFACTOR0;
 assign shift1 = (shiftval_del1 % SHIFTFACTOR0) / SHIFTFACTOR1;
 assign shift2 = (shiftval_del2 % SHIFTFACTOR0) % SHIFTFACTOR1;
@@ -132,7 +133,7 @@ begin
   @( posedge clk );
   shiftval <= #HOLD NUMINSTANCES/2 + 1;
   @( posedge clk );
-
+///// parmeters and data randomization
   for( int i=0; i<1000000; i++ )
   begin
     // random shift
@@ -160,7 +161,7 @@ generate
     assign cn_concat[inst*LLRWIDTH+LLRWIDTH-1:inst*LLRWIDTH] = cn_2d[inst];
   end
 endgenerate
-
+// is this simulation logic for rotate ?
 task rotate_ldpc( output reg[LLRWIDTH-1:0] out_array[NUMINSTANCES-1:0],
                   input  reg[LLRWIDTH-1:0] inp_array[NUMINSTANCES-1:0],
                   input  int               shift_distance );
@@ -218,12 +219,14 @@ begin
 
   forever
   begin
+    // this can't be seen on waveform because doesn't include pause on clk.
     for( int i=NUMINSTANCES-1; i>=0; i-- )
     begin
       local_result = sh_concat[(i+1)*LLRWIDTH-1 -: LLRWIDTH];
       
       if( first_half )
       begin
+        // vn_pipep[2] is shuffle result simulated in the tb.
         if( local_result!=vn_pipe[2][i] )
           $display( "%0t: Shuffle mismatch: position %0d: expected %0h: result %0h", $time, i, local_result, vn_pipe[2][i] );
       end
@@ -235,6 +238,7 @@ begin
   end
 end
 
+// vn_concat and cn_concat length is 360 because LLRWIDTH * NUMINSTANCES/4(foldfactor)
 ldpc_shuffle #( .FOLDFACTOR(FOLDFACTOR),
                 .NUMINSTANCES(NUMINSTANCES),
                 .LOG2INSTANCES(LOG2INSTANCES),
@@ -248,11 +252,11 @@ ldpc_shuffle #( .FOLDFACTOR(FOLDFACTOR),
   .shift0       (shift0),
   .shift1       (shift1),
   .shift2       (shift2),
-  .incpoint     (incpoint),
+  // .incpoint     (incpoint),
   .vn_concat    (vn_concat),
   .cn_concat    (cn_concat),
-  .sh_concat    (sh_concat),
-  .increment    (increment)
+  .sh_concat    (sh_concat)
+  // .increment    (increment)
 );
 
 endmodule

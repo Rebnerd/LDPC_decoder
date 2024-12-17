@@ -12,7 +12,7 @@
 //   v1.0  | JTC      :| 2008/07/02  :|
 // ----------------------------------------------------------------------
 `timescale 1ns/10ps
-
+// three stages shifting are pipelined, syncronous logic is inside ldpc_muxreg
 module ldpc_shuffle #(
   parameter FOLDFACTOR     = 4,
   parameter NUMINSTANCES   = 360/FOLDFACTOR,
@@ -56,6 +56,7 @@ endgenerate
 
 // shift distance is shift0* SHIFT0_MULT, where SHIFT0_MULT=
 // ceiling(360/FOLDFACTOR/4)
+// so quarter step size is choosen here ?
 localparam SHIFT0_MULT = (FOLDFACTOR==1) ? 90 :
                          (FOLDFACTOR==2) ? 45 :
                          (FOLDFACTOR==3) ? 30 :
@@ -95,6 +96,7 @@ wire[LLRWIDTH-1:0]     shifted_1[NUMINSTANCES-1:0];
 
 // shift distance is shift1* SHIFT1_MULT, where SHIFT1_MULT=
 // ceiling(360/FOLDFACTOR/4/8)
+//1/8 step size is choosen here.
 localparam SHIFT1_MULT = (FOLDFACTOR==1) ? 12 :
                          (FOLDFACTOR==2) ? 6  :
                          (FOLDFACTOR==3) ? 4  :

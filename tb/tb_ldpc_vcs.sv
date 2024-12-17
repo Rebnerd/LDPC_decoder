@@ -2,8 +2,8 @@
 
 module tb_ldpc();
 
-localparam CLK_PERIOD = 5ns;
-localparam HOLD       = 1ns;
+localparam CLK_PERIOD = 5;
+localparam HOLD       = 1;
 
 localparam SYMS_PER_EBN0 = 1;
 localparam EBN0_MIN      = 0.6;
@@ -191,9 +191,9 @@ function int CountDecodedErrs();
 endfunction
 
 function void genNoiseVec( output real result[64800] );
-  string filename = { "noise_", CODE_TYPE, ".txt" };
+  automatic string filename = { "C:/Users/Reb/Desktop/LDPC/dvb_s2_ldpc_decoder-master/dvb_s2_ldpc_decoder-master/mti/noise_", CODE_TYPE, ".txt" };
   real rand_noise_vec[10000];
-  int noise_file = $fopen( filename, "r" );
+  automatic int noise_file = $fopen( filename, "r" );
   int check_eof;
   
   for( int i=0; i<10000; i++ )
@@ -224,7 +224,7 @@ begin
 
   // H is a sparse matrix. The location of each one is stored as an integer.
   // -1 is used to represent unused memory locations.
-  h_defs_file = $fopen( "dvbs2_hdef.txt", "r" );
+  h_defs_file = $fopen( "C:/Users/Reb/Desktop/LDPC/dvb_s2_ldpc_decoder-master/dvb_s2_ldpc_decoder-master/mti/dvbs2_hdef.txt", "r" );
 
   if( !h_defs_file )
     $stop( "File dvbs2_hdef.txt not found\n" );
@@ -324,10 +324,10 @@ begin
   @( posedge rst );
   repeat( 5 ) @( posedge clk );
 
-  for( real ebn0dB=EBN0_MIN; ebn0dB<EBN0_MAX; ebn0dB+=EBN0_STEP )
+  for(real ebn0dB=EBN0_MIN; ebn0dB<EBN0_MAX; ebn0dB+=EBN0_STEP )
   begin
-    int err_bits    = 0;
-    int tested_bits = 0;
+    automatic int err_bits    = 0;
+    automatic int tested_bits = 0;
     real ber_result;
     
     err_bits    = 0;
@@ -451,6 +451,7 @@ begin
         //if( i<10 ) $display( "After decode: pos=%0d, result=%0d", i, result );
         @( posedge clk );
       end
+      
       
       $display( "Begin read parity bits" );
       // read parity bits
