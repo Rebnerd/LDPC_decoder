@@ -117,8 +117,9 @@ function void genNoiseVec( output real result[64800], input real ebn0db );
 
   int db_int;
   int db_tenths;
-  char db_int_char;
-  char db_tenths_char;
+  // change from char to byte according to sv syntax
+  byte db_int_char;
+  byte db_tenths_char;
   if( ebn0db>=2.0 )
     db_int = 2;
   else if( ebn0db>=1.0 )
@@ -130,7 +131,7 @@ function void genNoiseVec( output real result[64800], input real ebn0db );
   db_tenths_char = ( int'("0") + db_tenths );
   
 $display("");
-  filename  = { "noise_", CODE_TYPE, "_", db_int_char, "pt", db_tenths_char };
+  filename  = { "C:/Users/Reb/Desktop/LDPC/dvb_s2_ldpc_decoder-master/dvb_s2_ldpc_decoder-master/mti/noise_", CODE_TYPE, "_", db_int_char, "pt", db_tenths_char };
 $display( "opening file %s", filename );
 
   noise_file = $fopen( filename, "r" );
@@ -250,7 +251,7 @@ begin
 
   // H is a sparse matrix. The location of each one is stored as an integer.
   // -1 is used to represent unused memory locations.
-  h_defs_file = $fopen( "dvbs2_hdef.txt", "r" );
+  h_defs_file = $fopen( "C:/Users/Reb/Desktop/LDPC/dvb_s2_ldpc_decoder-master/dvb_s2_ldpc_decoder-master/mti/dvbs2_hdef.txt", "r" );
 
   if( !h_defs_file )
     $stop( "File dvbs2_hdef.txt not found\n" );

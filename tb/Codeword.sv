@@ -22,7 +22,7 @@ class Codeword;
   int coded_data[];
   int decoded_data[];
 
-  // data after AWGN
+  // data after AWGNCountOrigErrs
   real ebn0, N0;
   real r[];
   int  r_quantized[];
@@ -74,7 +74,7 @@ class Codeword;
 
     // H is a sparse matrix. The location of each one is stored as an integer.
     // -1 is used to represent unused memory locations.
-    h_defs_file = $fopen( "dvbs2_hdef.txt", "r" );
+    h_defs_file = $fopen( "C:/Users/Reb/Desktop/LDPC/dvb_s2_ldpc_decoder-master/dvb_s2_ldpc_decoder-master/mti/dvbs2_hdef.txt", "r" );
 
     if( !h_defs_file )
       disp_error( "File dvbs2_hdef.txt not found" );
@@ -347,7 +347,7 @@ class Codeword;
     db_tenths_char = ( int'("0") + db_tenths );
     
   $display("");
-    filename  = { "noise_", label, "_", db_int_char, "pt", db_tenths_char };
+    filename  = { "C:/Users/Reb/Desktop/LDPC/dvb_s2_ldpc_decoder-master/dvb_s2_ldpc_decoder-master/mti/noise_", label, "_", db_int_char, "pt", db_tenths_char };
   $display( "opening file %s", filename );
 
     noise_file = $fopen( filename, "r" );
@@ -445,8 +445,8 @@ class Codeword;
     CountDecodedErrs = 0;
 
     for( int i=0; i<n; i++ )
-      if( ((decoded_data[i]<0)  && (coded_data[i]>=0)) ||
-          ((decoded_data[i]>=0) && (coded_data[i]<0)) )
+      if( ((decoded_data[i]<0)  && (r_quantized[i]>=0)) ||
+          ((decoded_data[i]>=0) && (r_quantized[i]<0)) )
       begin
         if( CountDecodedErrs<500 )
         $display( "mismatch %0d %0d-->%0d", i, r_quantized[i], decoded_data[i] );

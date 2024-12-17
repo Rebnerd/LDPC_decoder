@@ -11,25 +11,6 @@ add wave -noupdate -expand -group top /tb_ldpc/LLRWIDTH
 add wave -noupdate -expand -group top /tb_ldpc/clk
 add wave -noupdate -expand -group top /tb_ldpc/rst
 add wave -noupdate -expand -group top /tb_ldpc/debug_level
-add wave -noupdate -expand -group top /tb_ldpc/label
-add wave -noupdate -expand -group top /tb_ldpc/n
-add wave -noupdate -expand -group top /tb_ldpc/k
-add wave -noupdate -expand -group top /tb_ldpc/q
-add wave -noupdate -expand -group top /tb_ldpc/word_width
-add wave -noupdate -expand -group top /tb_ldpc/h_defs_file
-add wave -noupdate -expand -group top /tb_ldpc/h_defs_height
-add wave -noupdate -expand -group top /tb_ldpc/h_defs_width
-add wave -noupdate -expand -group top /tb_ldpc/orig_data
-add wave -noupdate -expand -group top /tb_ldpc/coded_data
-add wave -noupdate -expand -group top /tb_ldpc/decoded_data
-add wave -noupdate -expand -group top /tb_ldpc/ebn0
-add wave -noupdate -expand -group top /tb_ldpc/N0
-add wave -noupdate -expand -group top /tb_ldpc/r
-add wave -noupdate -expand -group top /tb_ldpc/r_quantized
-add wave -noupdate -expand -group top /tb_ldpc/found_target
-add wave -noupdate -expand -group top /tb_ldpc/oneline
-add wave -noupdate -expand -group top /tb_ldpc/locallabel
-add wave -noupdate -expand -group top /tb_ldpc/temp_i
 add wave -noupdate -expand -group top /tb_ldpc/llr_access
 add wave -noupdate -expand -group top /tb_ldpc/llr_addr
 add wave -noupdate -expand -group top /tb_ldpc/llr_din_we
@@ -112,13 +93,13 @@ add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shif
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/vn_concat
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/cn_concat
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/sh_concat
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/unshifted
+add wave -noupdate -expand -group shuffler -expand /tb_ldpc/ldp_top_i/ldpc_shufflei/unshifted
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_0
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_1
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_2
 add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/increment_int
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {259241723935 fs} 0}
+WaveRestoreCursors {{Cursor 1} {966619100 fs} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 364
 configure wave -valuecolwidth 132
@@ -134,4 +115,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {259216525554 fs} {259249944139 fs}
+WaveRestoreZoom {0 fs} {108068625 ps}

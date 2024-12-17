@@ -17,6 +17,7 @@ vlib rtl_work
 vmap work rtl_work
 
 set tb_name  tb_ldpc
+# set tb_name  tb_ldpc12
 
 #do compile.do
 
@@ -34,7 +35,8 @@ vlog ../rtl/ldpc_top.v
 vlog ../rtl/ldpc_vn.v
 vlog ../rtl/ldpc_vncluster.v
 
-vlog ../tb/tb_ldpc_vcs.sv
+# vlog ../tb/run1_2.sv
+vlog ../tb/tb_ldpc.sv
 
 
 
@@ -50,5 +52,6 @@ log -r /*
 set StdArithNoWarnings 1
 configure wave -timelineunits ns
  do top_wave.do 
+	# do run1_2_wave.do
 
-run 1 ms
+run 10 ms
