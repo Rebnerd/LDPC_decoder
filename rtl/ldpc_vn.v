@@ -44,6 +44,8 @@ module ldpc_vn #(
   output[LLRWIDTH-1:0] vn_msg,
 
   // Attached RAM, holds iteration number, original LLR and message sum
+
+  //8 bits, 64800/360 =180, 2**8 = 256
   output[7+FOLDFACTOR-1:0] vnram_wraddr,
   output[7+FOLDFACTOR-1:0] vnram_rdaddr,
   output                   upmsg_we,
@@ -112,7 +114,9 @@ endfunction
  *************************************************/
 function[LLRWIDTH-1:0] SaturateMsg( input[LLRWIDTH+3:0] a );
 begin
+  // how many bits are expaneded ???4?
   if( a[LLRWIDTH+2:LLRWIDTH-1] != 4'b0000 )
+  // excluding sign bit.
     SaturateMsg[LLRWIDTH-2:0] = { (LLRWIDTH-1){1'b1} };
   else
     SaturateMsg[LLRWIDTH-2:0] = a[LLRWIDTH-2:0];

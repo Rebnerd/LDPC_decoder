@@ -17,6 +17,7 @@
 module ldpc_iocontrol #(
   parameter FOLDFACTOR     = 4,
   parameter LOG2FOLDFACTOR = 2,
+  // for factor 1, this equals to 4
   parameter LASTSHIFTWIDTH = 3,
   parameter NUMINSTANCES   = 180
 )(
@@ -373,6 +374,7 @@ wire                       orig_disable;
 assign orig_vn_addr  = ( matchpar || last_step ) ? vn_count
                        : romdata[8+5+LASTSHIFTWIDTH-1:5+LASTSHIFTWIDTH];
 assign orig_cn_addr  = cn_count;
+// first_half is message from vn to cn.
 assign orig_shiftval = DONT_SHIFT                     ? 0 :
                        matchpar                       ? 0 :
                        (first_half_int && last_step)  ? 1 :
@@ -454,7 +456,7 @@ always @( posedge rst, posedge clk )
     cn_rd_del[0]      <= orig_cn_rd;
     disable_vn_del[0] <= orig_disable;
     disable_cn_del[0] <= orig_disable;
-
+    
     for( loopvar=1; loopvar<LATENCY_CNVN_MAX; loopvar=loopvar+1 )
     begin
       cn_addr_del[loopvar]    <= cn_addr_del[loopvar-1];

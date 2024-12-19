@@ -25,7 +25,7 @@ set tb_name  tb_ldpc
 
 
 vlog ../rtl/ldpc_cn.v
-vlog ../rtl/ldpc_edgetable.v
+# vlog ../rtl/ldpc_edgetable.v
 vlog ../rtl/ldpc_edgetable_bu.v
 vlog ../rtl/ldpc_iocontrol.v
 vlog ../rtl/ldpc_muxreg.v

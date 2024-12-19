@@ -39,6 +39,7 @@ module ldp_top #(
 ////////////////
 // PARAMETERS //
 ////////////////
+// what is this parameter ???
 localparam NUMVNS       = 3;
 localparam LASTSHIFTDIST = (FOLDFACTOR==1) ? 11 :
                            (FOLDFACTOR==2) ? 5  :
@@ -161,7 +162,7 @@ generate
   begin: convert1d2d2
     assign vn_concat[NUMVNS*LLRWIDTH*m+NUMVNS*LLRWIDTH-1 -: NUMVNS*LLRWIDTH] = vn_cluster_msg[m];
     assign sh_cluster_msg[m] = sh_concat[NUMVNS*LLRWIDTH*m+NUMVNS*LLRWIDTH-1 -: NUMVNS*LLRWIDTH];
-
+    // group every NUMVNS llr messages into one entry(var node)
     assign llr_din_2d[m] = llr_din[NUMVNS*LLRWIDTH*m+NUMVNS*LLRWIDTH-1 -: NUMVNS*LLRWIDTH];
     assign llr_dout[NUMVNS*LLRWIDTH*m+NUMVNS*LLRWIDTH-1 -: NUMVNS*LLRWIDTH] = llr_dout_2d[m];
   end

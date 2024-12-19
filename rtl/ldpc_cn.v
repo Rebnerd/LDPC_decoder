@@ -29,7 +29,7 @@ module ldpc_cn #(
   // message I/O
   input                   iteration,         // toggle each iteration
   input                   first_half,
-  input                   first_iteration,   // don't need to subtract-off previous message!
+  input                   first_iteration,   // don't need to subtract-off previous message!. BUT others do need ?
   input                   cn_we,
   input                   cn_rd,
   input                   disable_cn, // parity mix disables one node

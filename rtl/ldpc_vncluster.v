@@ -192,7 +192,7 @@ generate
     assign upmsg_dout[k] = combined_dout[k*(2*LLRWIDTH+5)+2*LLRWIDTH+4 -: 2*LLRWIDTH+5];
   end
 endgenerate
-
+// split RAM vs united RAM ??? what's that
 generate
   if( ENABLE_DISABLE )
   begin: split_rams

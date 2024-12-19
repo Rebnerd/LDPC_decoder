@@ -99,6 +99,8 @@ begin
     for( int symnum=0; symnum<SYMS_PER_EBN0; symnum++ )
     begin
       // create word
+
+      // we will write N bits in total
       check_word.create_random_msg();
       check_word.encode();
 
@@ -108,7 +110,7 @@ begin
       // begin testing DUT
       @(posedge clk);
 
-      // write normal data bits
+      // write normal data bits, k stands for message bits.
       for( int i=0; i<check_word.GetK()/360; i++ )
       begin
         int wr_val;
@@ -119,8 +121,11 @@ begin
 
         for( int j=0; j<360; j++ )
         begin
+          // values are fetched from r_quantized 
           wr_val = check_word.GetVal(360*i +j);
           //wr_val = 360*i +j;
+
+          // does this indicates using 'True form' coding?
           abs_wr_val = wr_val < 0 ? -1*wr_val : wr_val;
 
           llr_din[(j+1)*LLRWIDTH-1 -: LLRWIDTH]
@@ -132,7 +137,7 @@ begin
         @( posedge clk );
       end
 
-      // write parity bits
+      // write parity bits, n-k are parity bits .
       for( int i=0; i<(check_word.GetN()-check_word.GetK())/360; i++ )
       begin
         int rotate_pos;
@@ -140,7 +145,7 @@ begin
         int abs_wr_val;
 
         llr_addr <= check_word.GetK()/360 + i;
-
+        // 360 values are updated simultaneously !
         for( int j=0; j<360; j++ )
         begin
           rotate_pos = check_word.GetK() + i + j*check_word.GetQ();
@@ -160,8 +165,8 @@ begin
       llr_din_we <= 0;
       llr_access <= 0;
       @( posedge clk );
-
-      //controls
+      
+      // after llr_access, start message passing, at the same time applies mode option
       start <= 1;
 
       case( CODE_TYPE )
@@ -191,10 +196,11 @@ begin
       @( posedge clk );
       start <= 0;
       @( posedge clk );
-
+      // wait for done to assert and read data out
       // read data out
       @(posedge done);
-      @(posedge clk);
+      // useless?
+      // @(posedge clk);
 
       llr_access <= 1;
       llr_addr   <= 0;
@@ -208,7 +214,7 @@ begin
         llr_addr <= i;
         llr_din  <= { LLRWIDTH{1'bX} };
         @( posedge clk );
-
+        // after llr_din is x, read data out ?
         if( i>=READ_LATENCY )
           for( int j=0; j<360; j++ )
           begin
