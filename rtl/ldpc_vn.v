@@ -27,6 +27,7 @@ module ldpc_vn #(
   // LLR I/O
   input                   llr_access,
   input[7+FOLDFACTOR-1:0] llr_addr,
+  // seen with llr_access to determine if it's input or output 
   input                   llr_din_we,
   input[LLRWIDTH-1:0]     llr_din,
   output[LLRWIDTH-1:0]    llr_dout,
@@ -37,6 +38,7 @@ module ldpc_vn #(
   input                   first_iteration,  // ignore upmsgs
   input                   we_vnmsg,
   input                   disable_vn,
+  // what is this used for exactly?
   input[7+FOLDFACTOR-1:0] addr_vn,
 
   // message I/O
@@ -57,7 +59,7 @@ module ldpc_vn #(
 wire[LLRWIDTH-1:0] llr_orig;
 wire[LLRWIDTH+3:0] stored_msg_sum;
 wire               stored_iteration;
-
+// read out old data 
 assign llr_orig         = upmsg_dout[LLRWIDTH-1:0];
 assign stored_msg_sum   = upmsg_dout[2*LLRWIDTH+3:LLRWIDTH];
 assign stored_iteration = upmsg_dout[2*LLRWIDTH+4];
@@ -148,6 +150,7 @@ reg recycle_result;
 
 // mux in alternative address for final read-out
 assign vnram_rdaddr = vnram_rdaddr_int;
+// this logic is redundent but doesn't matter
 always @( * ) vnram_rdaddr_int <= #1 llr_access ? llr_addr : addr_vn;
 
 assign sh_msg_aligned_ram       = sh_msg_del[RAM_LATENCY-1];
@@ -160,7 +163,7 @@ always @( posedge rst, posedge clk )
   begin
     for( loopvar1=0; loopvar1<RAM_LATENCY; loopvar1=loopvar1+1 )
     begin
-      sh_msg_del[loopvar1]       <= 0;
+      sh_msg_del[loopvar1]       <= 0;  
       we_vnmsg_del[loopvar1]     <= 0;
       vnram_rdaddr_del[loopvar1] <= 0;
       disable_del[loopvar1]      <= 0;
@@ -224,9 +227,14 @@ always @( posedge clk, posedge rst )
     // clear msg0 when beginning a new set of upstream messages
     msg0_norst <= recycle_result ? msg_sum : stored_msg_sum;
     rst_msg0   <= start_new_upmsg & ~recycle_result;
-    
+    // When creating downstream messages,  or preparing final result:
+    //      msg_sum = llr + sum of messages
+    // When receiving upstream messages:
+    //      msg_sum = new message + sum of messages
+
+    // okay, so we know that the upstream messages are comming at the second half and sh_msg_aligned_ram is upstream message
     msg1 <= (llr_access || first_half) ? llr_orig : sh_msg_aligned_ram;
-    
+
     msg_sum_reg <= msg_sum;
   end
 
@@ -261,7 +269,8 @@ assign disable_aligned_msg      = disable_del2[RAM_LATENCY-1];
 always @( posedge rst, posedge clk )
   if( rst )
   begin
-    for( loopvar2=0; loopvar2<RAM_LATENCY; loopvar2=loopvar2+1 )
+    // shouldn't here be calc_latency????
+    for( loopvar2=0; loopvar2<CALC_LATENCY; loopvar2=loopvar2+1 )
     begin
       we_vnmsg_del2[loopvar2]     <= 0;
       vnram_rdaddr_del2[loopvar2] <= 0;
@@ -276,9 +285,10 @@ always @( posedge rst, posedge clk )
     llrram_dout_del2[0]   <= llr_orig;
     disable_del2[0]       <= disable_aligned_ram;
 
-    for( loopvar2=1; loopvar2<RAM_LATENCY; loopvar2=loopvar2+1 )
+    for( loopvar2=1; loopvar2<CALC_LATENCY; loopvar2=loopvar2+1 )
     begin
       we_vnmsg_del2[loopvar2]     <= we_vnmsg_del2[loopvar2 -1];
+      // address used for write back
       vnram_rdaddr_del2[loopvar2] <= vnram_rdaddr_del2[loopvar2 -1];
       llrram_dout_del2[loopvar2]  <= llrram_dout_del2[loopvar2 -1];
       disable_del2[loopvar2]      <= disable_del2[loopvar2 -1];
@@ -295,6 +305,7 @@ reg[LLRWIDTH+3:0]     new_msg_sum;
 reg                   upmsg_we_int;
 
 assign vnram_wraddr = vnram_wraddr_int;
+// concat three variable to one ram entry.
 assign upmsg_din    = { new_iteration, new_msg_sum, new_llr };
 assign upmsg_we     = upmsg_we_int;
 
@@ -309,8 +320,10 @@ always @( posedge rst, posedge clk )
   end
   else
   begin
-    // mux and register outputs
+    // mux and register outputs, vnram_rdaddr_aligned_msg is the delayed version of vnram_rdaddr, this is just a write back operation 
     vnram_wraddr_int <= #1 llr_access ? llr_addr : vnram_rdaddr_aligned_msg;
+    // does llr update? I don't know. and what's the difference? I see, the llr is comming from the second half.
+    // it doesn't update but it does RESET, this is just for data retaintion
     new_llr          <= #1 llr_access ? llr_din  : llrram_dout_aligned_msg;
     new_msg_sum      <= #1 llr_access ? 0        : msg_sum_reg;
     
@@ -320,10 +333,10 @@ always @( posedge rst, posedge clk )
   end
 
 /*****************************************************************
- * Saturate message to fewer bits for message passing and output *
+ * Saturate message to fewer bits for message passing and output, so doesn't involve upstream receiving stage *
  *****************************************************************/
 reg[LLRWIDTH-1:0] vn_msg_int;
-
+// those two are same thing, llr_dout is the final version of vn_msg.
 assign llr_dout = vn_msg_int;
 assign vn_msg   = vn_msg_int;
 

@@ -33,6 +33,7 @@ assign dout = dout_int;
 
 always @( posedge clk )
 begin
+  // WTF ??? why active low???
   if( !we )
     storage[wraddr] <= din;
   

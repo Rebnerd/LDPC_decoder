@@ -49,26 +49,26 @@ add wave -noupdate -group top /tb_ldpc/ldp_top_i/dnmsg_wraddr
 add wave -noupdate -group top /tb_ldpc/ldp_top_i/dnmsg_rdaddr
 add wave -noupdate -group top /tb_ldpc/ldp_top_i/dnmsg_din
 add wave -noupdate -group top /tb_ldpc/ldp_top_i/dnmsg_dout
-add wave -noupdate -expand -group tb /tb_ldpc/CLK_PERIOD
-add wave -noupdate -expand -group tb /tb_ldpc/HOLD
-add wave -noupdate -expand -group tb /tb_ldpc/SYMS_PER_EBN0
-add wave -noupdate -expand -group tb /tb_ldpc/EBN0_MIN
-add wave -noupdate -expand -group tb /tb_ldpc/EBN0_MAX
-add wave -noupdate -expand -group tb /tb_ldpc/EBN0_STEP
-add wave -noupdate -expand -group tb /tb_ldpc/CODE_TYPE
-add wave -noupdate -expand -group tb /tb_ldpc/LLRWIDTH
-add wave -noupdate -expand -group tb /tb_ldpc/clk
-add wave -noupdate -expand -group tb /tb_ldpc/rst
-add wave -noupdate -expand -group tb /tb_ldpc/debug_level
-add wave -noupdate -expand -group tb /tb_ldpc/llr_access
-add wave -noupdate -expand -group tb /tb_ldpc/llr_addr
-add wave -noupdate -expand -group tb /tb_ldpc/llr_din_we
-add wave -noupdate -expand -group tb /tb_ldpc/llr_din
-add wave -noupdate -expand -group tb /tb_ldpc/llr_dout
-add wave -noupdate -expand -group tb /tb_ldpc/start
-add wave -noupdate -expand -group tb /tb_ldpc/mode
-add wave -noupdate -expand -group tb /tb_ldpc/iter_limit
-add wave -noupdate -expand -group tb /tb_ldpc/done
+add wave -noupdate -group tb /tb_ldpc/CLK_PERIOD
+add wave -noupdate -group tb /tb_ldpc/HOLD
+add wave -noupdate -group tb /tb_ldpc/SYMS_PER_EBN0
+add wave -noupdate -group tb /tb_ldpc/EBN0_MIN
+add wave -noupdate -group tb /tb_ldpc/EBN0_MAX
+add wave -noupdate -group tb /tb_ldpc/EBN0_STEP
+add wave -noupdate -group tb /tb_ldpc/CODE_TYPE
+add wave -noupdate -group tb /tb_ldpc/LLRWIDTH
+add wave -noupdate -group tb /tb_ldpc/clk
+add wave -noupdate -group tb /tb_ldpc/rst
+add wave -noupdate -group tb /tb_ldpc/debug_level
+add wave -noupdate -group tb /tb_ldpc/llr_access
+add wave -noupdate -group tb /tb_ldpc/llr_addr
+add wave -noupdate -group tb /tb_ldpc/llr_din_we
+add wave -noupdate -group tb /tb_ldpc/llr_din
+add wave -noupdate -group tb /tb_ldpc/llr_dout
+add wave -noupdate -group tb /tb_ldpc/start
+add wave -noupdate -group tb /tb_ldpc/mode
+add wave -noupdate -group tb /tb_ldpc/iter_limit
+add wave -noupdate -group tb /tb_ldpc/done
 add wave -noupdate -group edgetable /tb_ldpc/ldp_top_i/ldpc_edgetable_i/clk
 add wave -noupdate -group edgetable /tb_ldpc/ldp_top_i/ldpc_edgetable_i/rst
 add wave -noupdate -group edgetable /tb_ldpc/ldp_top_i/ldpc_edgetable_i/romaddr
@@ -138,20 +138,20 @@ add wave -noupdate -group io_control /tb_ldpc/ldp_top_i/ldpc_iocontroli/shift1_r
 add wave -noupdate -group io_control /tb_ldpc/ldp_top_i/ldpc_iocontroli/shift2_reg
 add wave -noupdate -group io_control /tb_ldpc/ldp_top_i/ldpc_iocontroli/rem0
 add wave -noupdate -group io_control /tb_ldpc/ldp_top_i/ldpc_iocontroli/rem1
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/clk
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/rst
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/first_half
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shift0
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shift1
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shift2
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/vn_concat
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/cn_concat
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/sh_concat
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/unshifted
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_0
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_1
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_2
-add wave -noupdate -expand -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/increment_int
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/clk
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/rst
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/first_half
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shift0
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shift1
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shift2
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/vn_concat
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/cn_concat
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/sh_concat
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/unshifted
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_0
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_1
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/shifted_2
+add wave -noupdate -group shuffler /tb_ldpc/ldp_top_i/ldpc_shufflei/increment_int
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/FOLDFACTOR}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/LLRWIDTH}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/RAM_LATENCY}
@@ -164,20 +164,22 @@ add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vnclus
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/llr_din}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/llr_dout}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/iteration}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/first_half}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/first_iteration}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/we_vnmsg}
+add wave -noupdate -group vn -color Violet {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/we_vnmsg}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/disable_vn}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/addr_vn}
+add wave -noupdate -group vn -radix hexadecimal {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/addr_vn}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/sh_msg}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/vn_msg}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/vnram_wraddr}
+add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/llr_orig}
+add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/msg0}
+add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/msg1}
+add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/stored_msg_sum}
+add wave -noupdate -group vn -color Coral {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/vnram_wraddr}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/vnram_rdaddr}
+add wave -noupdate -group vn -color Gold {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/first_half}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/upmsg_we}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/upmsg_din}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/upmsg_dout}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/llr_orig}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/stored_msg_sum}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/stored_iteration}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/loopvar1}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/vnram_rdaddr_int}
@@ -191,8 +193,6 @@ add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vnclus
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/disable_aligned_ram}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/recycle_result}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/msg0_norst}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/msg0}
-add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/msg1}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/start_new_upmsg}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/rst_msg0}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/msg_sum}
@@ -212,70 +212,46 @@ add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vnclus
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/new_msg_sum}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/upmsg_we_int}
 add wave -noupdate -group vn {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[0]/genblk1/ldpc_vn0i/vn_msg_int}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/FOLDFACTOR}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/LLRWIDTH}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/RAM_LATENCY}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/CALC_LATENCY}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/clk}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/rst}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llr_access}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llr_addr}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llr_din_we}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llr_din}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llr_dout}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/iteration}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/first_half}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/first_iteration}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/we_vnmsg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/disable_vn}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/addr_vn}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/sh_msg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vn_msg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_wraddr}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_rdaddr}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/upmsg_we}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/upmsg_din}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/upmsg_dout}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llr_orig}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/stored_msg_sum}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/stored_iteration}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/loopvar1}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_rdaddr_int}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/sh_msg_del}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/we_vnmsg_del}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_rdaddr_del}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/disable_del}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/sh_msg_aligned_ram}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/we_vnmsg_aligned_ram}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_rdaddr_aligned_ram}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/disable_aligned_ram}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/recycle_result}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/msg0_norst}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/msg0}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/msg1}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/start_new_upmsg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/rst_msg0}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/msg_sum}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/msg_sum_reg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/loopvar2}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/we_vnmsg_del2}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_rdaddr_del2}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llrram_dout_del2}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/disable_del2}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/we_vnmsg_aligned_msg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_rdaddr_aligned_msg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/llrram_dout_aligned_msg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/disable_aligned_msg}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vnram_wraddr_int}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/new_llr}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/new_iteration}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/new_msg_sum}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/upmsg_we_int}
-add wave -noupdate -group vn1 {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/varnodes[1]/genblk3/ldpc_vni/vn_msg_int}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/NUMVNS}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/ENABLE_DISABLE}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/FOLDFACTOR}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/LASTSHIFTWIDTH}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/LLRWIDTH}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/clk}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/rst}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_access}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_addr}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_din_we}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_din}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_dout}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/iteration}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/first_half}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/first_iteration}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/we_vnmsg}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/disable_vn}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/addr_vn}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/sh_cluster_msg}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/vn_cluster_msg}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/zero}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/vn_msg}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/sh_msg}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_din_2d}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llr_dout_2d}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llrram_we}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/vnram_wraddr}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/vnram_rdaddr}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llrram_din}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/llrram_dout}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/upmsg_we}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/upmsg_din}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/upmsg_dout}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/upmsg_we_last}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/combined_din}
+add wave -noupdate -expand -group vn_cluster {/tb_ldpc/ldp_top_i/varnodes[0]/genblk1/ldpc_vncluster_firsti/combined_dout}
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {952500000 fs} 0}
+WaveRestoreCursors {{Cursor 7} {1223500000 fs} 0} {{Cursor 11} {1197500000 fs} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 596
+configure wave -namecolwidth 415
 configure wave -valuecolwidth 113
 configure wave -justifyvalue left
 configure wave -signalnamewidth 1
@@ -289,4 +265,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 fs} {108016125 ps}
+WaveRestoreZoom {1138282128 fs} {1377875968 fs}

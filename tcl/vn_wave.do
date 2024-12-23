@@ -19,7 +19,7 @@ add wave -noupdate /tb_vn/rst
 add wave -noupdate /tb_vn/run_source
 add wave -noupdate /tb_vn/writes_per_iteration
 add wave -noupdate /tb_vn/iterations
-add wave -noupdate /tb_vn/llr_access
+add wave -noupdate -color Gold /tb_vn/llr_access
 add wave -noupdate /tb_vn/llr_addr
 add wave -noupdate /tb_vn/llr_din_we
 add wave -noupdate /tb_vn/llr_din
@@ -38,11 +38,11 @@ add wave -noupdate /tb_vn/msg_sums
 add wave -noupdate /tb_vn/last_msgwrite_iteration
 add wave -noupdate /tb_vn/predicted_llr_dout
 add wave -noupdate /tb_vn/predicted_vn_msg
-add wave -noupdate /tb_vn/predicted_llr_dout_del
 add wave -noupdate /tb_vn/check_llr_dout_del
 add wave -noupdate /tb_vn/predicted_vn_msg_del
 add wave -noupdate /tb_vn/check_vn_msg_del
-add wave -noupdate /tb_vn/llr_dout_int
+add wave -noupdate /tb_vn/predicted_llr_dout_del
+add wave -noupdate -color {Medium Slate Blue} /tb_vn/llr_dout_int
 add wave -noupdate /tb_vn/vn_msg_int
 add wave -noupdate /tb_vn/vnram_wraddr
 add wave -noupdate /tb_vn/vnram_rdaddr
@@ -97,17 +97,17 @@ add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_i/Group1 -group {Region: si
 add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_i/Group1 -group {Region: sim:/tb_vn/ldpc_vn_i} /tb_vn/ldpc_vn_i/new_msg_sum
 add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_i/Group1 -group {Region: sim:/tb_vn/ldpc_vn_i} /tb_vn/ldpc_vn_i/upmsg_we_int
 add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_i/Group1 -group {Region: sim:/tb_vn/ldpc_vn_i} /tb_vn/ldpc_vn_i/vn_msg_int
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/clk
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/we
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/din
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/wraddr
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/rdaddr
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/dout
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/addr_del
-add wave -noupdate -expand -label sim:/tb_vn/ldpc_vn_rami/Group1 -group {Region: sim:/tb_vn/ldpc_vn_rami} /tb_vn/ldpc_vn_rami/dout_int
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/clk
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/we
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/din
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/wraddr
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/rdaddr
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/dout
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/addr_del
+add wave -noupdate -expand -group ram /tb_vn/ldpc_vn_rami/dout_int
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 fs} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {2661000000 fs} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 443
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -122,4 +122,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 fs} {16970 fs}
+WaveRestoreZoom {0 fs} {7127900734 fs}

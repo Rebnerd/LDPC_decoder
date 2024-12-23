@@ -343,6 +343,7 @@ begin
     // downstream
     for( int it=0; it<iterations; it++ )
     begin
+      // all write sequentially ? write from where to where ?
       int base_offset;
       base_offset = it * writes_per_iteration;
       
@@ -357,6 +358,7 @@ begin
         
         for( int i=0; i<writes_per_iteration; i++ )
         begin
+          // combine to form test data and write to DUT
           sh_msg[LLRWIDTH-1]   <= #HOLD sign_sequence[base_offset + i];
           sh_msg[LLRWIDTH-2:0] <= #HOLD data_sequence[base_offset + i];
           addr_vn              <= #HOLD address[base_offset + i];
@@ -381,6 +383,7 @@ end
 // Mimic intended behavior of VN
 int llr_values[0:VN_DEPTH-1];
 int msg_sums[0:VN_DEPTH-1];
+// does this store iteration number ?
 int last_msgwrite_iteration[0:VN_DEPTH-1];
 
 int predicted_llr_dout;
@@ -403,7 +406,7 @@ begin
       msg_sums[addr_vn] = 0;
     last_msgwrite_iteration[addr_vn] = iteration;
 
-    // add in new message
+    // add new message, using true form arithmatic
     if( sh_msg[LLRWIDTH-1] )
       msg_sums[addr_vn] = msg_sums[addr_vn] - sh_msg[LLRWIDTH-2:0];
     else
@@ -417,6 +420,10 @@ begin
   end
 
   // llr_dout is the sum of the original LLR and the sum of the messages
+
+  // is this downstream message ???? I think so.
+
+  // also what's the difference between llr_addr and addr_vn ?
   predicted_llr_dout = llr_values[llr_addr] + msg_sums[llr_addr];
   if( predicted_llr_dout>MAX_LLR )
     predicted_llr_dout = MAX_LLR;
